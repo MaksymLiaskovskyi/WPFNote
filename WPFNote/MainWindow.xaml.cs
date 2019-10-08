@@ -103,5 +103,12 @@ namespace WPFNote
             ((TextBox)sender).Text = "Логин";
             ((TextBox)sender).Foreground = Brushes.Gray;
         }
+
+
+        private void regClick(object sender, RoutedEventArgs e)
+        {
+            Model.registration.regPerson(regLoginTextBox.Text, regPassTextBox.Text);
+
+        }
 }
 }

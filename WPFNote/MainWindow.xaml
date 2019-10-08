@@ -359,6 +359,7 @@
                                 MinHeight="30px"
                                 MaxWidth="200px"
                                 Grid.ColumnSpan="6"
+                                Click="regClick"
                                 >
                                 Зарегистрироваться
                             </Button>

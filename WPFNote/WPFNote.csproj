@@ -56,6 +56,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\DBConnect.cs" />
+    <Compile Include="Model\registration.cs" />
+    <Compile Include="Model\SQLConnect.cs" />
     <Compile Include="sendMessToServ.cs" />
     <Compile Include="Window1.xaml.cs">
       <DependentUpon>Window1.xaml</DependentUpon>
@@ -133,7 +136,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controls\" />
-    <Folder Include="Model\" />
     <Folder Include="Views\" />
   </ItemGroup>
   <ItemGroup>
