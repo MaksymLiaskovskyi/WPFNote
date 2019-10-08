@@ -1,0 +1,373 @@
+﻿<Window x:Class="WPFNote.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFNote"
+        mc:Ignorable="d"
+        Title="MainWindow" MinHeight="355" Height="480" MinWidth="650"  Width="855" WindowStartupLocation="CenterScreen">
+
+    <Grid x:Name="LayoutRoot" Margin="0,0,0,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition MinWidth="300" Width="1*" />
+            <ColumnDefinition Width="4*" />
+        </Grid.ColumnDefinitions><!--2-->
+
+
+
+        <!-- Левая часть (меню)-->
+        <Grid 
+            Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition MinHeight="120" Height="1*"/>
+                <RowDefinition Height="3.5*"/>
+            </Grid.RowDefinitions><!--2-->
+
+            
+            <!-- Название-логотип меню-->
+            <Border Grid.Row="0" Background="#3A4047">
+                <TextBlock Text="ToDoNote" Foreground="White" FontSize="20" FontFamily="Calibri Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="25" />
+            </Border>
+
+            
+            
+            <!-- Меню (кнопки) -->
+            <Grid x:Name="menuGrid" Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions><!--4-->
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="19*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions><!--2-->
+
+
+
+                <Border x:Name="borderMenu" Grid.Row="0" Grid.Column="1" Style="{StaticResource menu}"/>
+                <Button x:Name="menuBtn" Grid.Row="0" Grid.Column="0" Content="Меню" Style="{StaticResource leftMenu}" Click="menuClick"/>
+                <Border x:Name="borderTrecker" Grid.Row="1" Grid.Column="1" Style="{StaticResource menu}"/>
+                <Button x:Name="treckerBtn" Grid.Row="1" Grid.Column="0" Content="Трекер" Style="{StaticResource leftMenu}" Click="treckerClick"/>
+                <Border x:Name="borderDiary" Grid.Row="2" Grid.Column="1" Style="{StaticResource menu}"/>
+                <Button x:Name="diaryBtn" Grid.Row="2" Grid.Column="0" Content="Дневник" Style="{StaticResource leftMenu}" Click="diaryClick"/>
+                <Border x:Name="borderSettings" Grid.Row="3" Grid.Column="1" Style="{StaticResource menu}"/>
+                <Button x:Name="settingsBtn" Grid.Row="3" Grid.Column="0" Content="Настройки" Style="{StaticResource leftMenu}" Click="settingsClick"/>
+
+
+            </Grid>
+            
+            
+            
+        </Grid>
+
+
+        <!-- Правая часть (профиль и контент) -->
+        <Grid 
+            Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition MinHeight="60" Height="1*"/>
+                <RowDefinition MinHeight="300" Height="7*"/>
+            </Grid.RowDefinitions><!-- 2 -->
+
+
+            <!-- контейнер профиля -->
+            <Border 
+                Background="#3A4047" 
+                Grid.Row="0">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions><!-- 10 -->
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions><!-- 5 -->
+
+
+                    <Grid 
+                        Grid.Row="1"
+                        Grid.Column="3"
+                        Grid.ColumnSpan="5"
+                        Grid.RowSpan="3"
+                        HorizontalAlignment="Right">
+                        <TextBlock VerticalAlignment="Center">
+                            <Hyperlink
+                                x:Name="enterAcc">
+                                Войти 
+                            </Hyperlink>
+                                /
+                            <Hyperlink
+                                x:Name="regAcc">
+                                Зарегистрироваться
+                            </Hyperlink>
+                        </TextBlock>
+                    </Grid>
+
+
+
+                    <Image
+                        Source="Resources/profile.png"
+                        Name="profileImg"
+                        Grid.Column="8"
+                        Grid.ColumnSpan="1"
+                        Grid.Row="1"
+                        Grid.RowSpan="3"/>
+
+
+                </Grid>
+            </Border>
+            
+            
+            <!-- Контент -->
+            <Border 
+                Background="#18191D" 
+                Grid.Row="1">
+                <TabControl x:Name="contentTab" Background="#18191D" BorderThickness="0">
+                    
+                    
+                    <!-- Меню -->
+                    <TabItem 
+                        x:Name="menuTab" 
+                        Visibility="Collapsed">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions><!-- 7 -->
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions><!-- 7 -->
+
+                            
+                            <TextBlock 
+                                x:Name="welcomeLabel" 
+                                Grid.Column="0" 
+                                Grid.ColumnSpan="7" 
+                                Grid.Row="1" 
+                                Style="{StaticResource label}">
+                                Добрый день!
+                            </TextBlock>
+                            <TextBlock
+                                x:Name="infSysLabel"
+                                Style="{StaticResource labelWrap}"
+                                Grid.Column="1"
+                                Grid.Row="2"
+                                Grid.ColumnSpan="5"
+                                Grid.RowSpan="3"
+                                FontSize="18" VerticalAlignment="Top">
+                                Вас приветствует информационная система для управления робочим временем.
+                            </TextBlock>
+                            <Button 
+                                MaxWidth="150px"
+                                MaxHeight="75px"
+                                Grid.Column="4"
+                                Grid.Row="5" 
+                                Grid.ColumnSpan="2"  >
+                                Об авторе
+                            </Button>
+                        </Grid>
+                    </TabItem>
+                    
+                    
+                    <!-- Трекер -->
+                    <TabItem 
+                        x:Name="treckerTab" 
+                        Visibility="Collapsed">
+                        
+                    </TabItem>
+                    
+                    
+                    <!-- Дневник -->
+                    <TabItem 
+                        x:Name="diaryTab" 
+                        Visibility="Collapsed">
+                        
+                    </TabItem>
+                    
+                    
+                    <!-- Настройки -->
+                    <TabItem 
+                        x:Name="settingsTab" 
+                        Visibility="Collapsed">
+                        
+                    </TabItem>
+
+                    
+                    <!-- Вход -->
+                    <TabItem 
+                        x:Name="enterTab" 
+                        Visibility="Collapsed">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <!-- 10 -->
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition
+                                    MaxHeight="50"/>
+                                <RowDefinition
+                                    MaxHeight="50"/>
+                                <RowDefinition
+                                    MaxHeight="50"/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <!-- 8 -->
+
+                            <TextBlock 
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                Grid.ColumnSpan="10"
+                                Grid.RowSpan="2"
+                                VerticalAlignment="Bottom"
+                                Style="{StaticResource label}">
+                                Вход
+                            </TextBlock>
+
+                            <TextBox
+                                x:Name="enterLoginTextBox"
+                                Grid.Row="2"
+                                Grid.Column="2"
+                                Grid.ColumnSpan="6"
+                                Grid.RowSpan="2"
+                                Text="Логин"
+                                Foreground="Gray"
+                                />
+                            <TextBox
+                                x:Name="enterPassTextBox"
+                                Grid.Row="4"
+                                Grid.Column="2"
+                                Grid.ColumnSpan="6"
+                                Text="Пароль"
+                                Foreground="Gray"
+                                />
+                            <Button
+                                x:Name="enterBtn"
+                                Grid.Column="2"
+                                Grid.Row="6" 
+                                VerticalAlignment="Top"
+                                MinHeight="30px"
+                                MaxWidth="200px"
+                                Grid.ColumnSpan="6"
+                                >
+                                Войти
+                            </Button>
+                        </Grid>
+                    </TabItem>
+
+                    
+                    <!-- Регистрация -->
+                    <TabItem 
+                        x:Name="regTab" 
+                        Visibility="Collapsed">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions><!-- 10 -->
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition
+                                    MaxHeight="50"/>
+                                <RowDefinition
+                                    MaxHeight="50"/>
+                                <RowDefinition
+                                    MaxHeight="50"/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions><!-- 8 -->
+
+                            <TextBlock 
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                Grid.ColumnSpan="10"
+                                Grid.RowSpan="2"
+                                VerticalAlignment="Bottom"
+                                Style="{StaticResource label}">
+                                Регистрация
+                            </TextBlock>
+
+                            <TextBox
+                                x:Name="regLoginTextBox"
+                                Grid.Row="2"
+                                Grid.Column="2"
+                                Grid.ColumnSpan="6"
+                                Grid.RowSpan="2"
+                                Text="Логин"
+                                Foreground="Gray"
+                                />
+                            <TextBox
+                                x:Name="regPassTextBox"
+                                Grid.Row="4"
+                                Grid.Column="2"
+                                Grid.ColumnSpan="6"
+                                Text="Пароль"
+                                Foreground="Gray"
+                                />
+                            <Button
+                                x:Name="regBtn"
+                                Grid.Column="2"
+                                Grid.Row="6" 
+                                VerticalAlignment="Top"
+                                MinHeight="30px"
+                                MaxWidth="200px"
+                                Grid.ColumnSpan="6"
+                                >
+                                Зарегистрироваться
+                            </Button>
+                        </Grid>
+                    </TabItem>
+
+
+                </TabControl>
+            </Border>
+        </Grid>
+    </Grid>
+</Window>

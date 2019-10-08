@@ -1,0 +1,34 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:WPFNote.Styles">
+
+
+    <Style TargetType="TextBox">
+        <Style.Setters>
+        <Setter Property="MaxHeight" Value="38px"/>
+        <Setter Property="MaxWidth" Value="450px"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="FontSize" Value="18"/>
+            <Setter Property="Padding" Value="10 0 10 0"/>
+        </Style.Setters>
+    </Style>
+    
+    
+    
+    <ControlTemplate TargetType="TextBox" x:Key="box">
+        <Border CornerRadius="25"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    Background="{TemplateBinding Background}"
+                    Height="{TemplateBinding Height}"
+                    Width="{TemplateBinding Width}" >
+            <ContentControl Margin="{TemplateBinding Padding}"
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+        </Border>
+    </ControlTemplate>
+    
+    
+    
+    
+</ResourceDictionary>

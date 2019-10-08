@@ -1,0 +1,18 @@
+﻿<Application x:Class="WPFNote.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:WPFNote"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries >
+                <ResourceDictionary Source="Styles/Button.xaml"/>
+                <ResourceDictionary Source="Styles/Border.xaml"/>
+                <ResourceDictionary Source="Styles/TextBlock.xaml"/>
+                <ResourceDictionary Source="Styles/TabItems.xaml"/>
+                <ResourceDictionary Source="Styles/Label.xaml"/>
+                <ResourceDictionary Source="Styles/textBox.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
