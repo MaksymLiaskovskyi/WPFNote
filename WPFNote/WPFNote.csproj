@@ -56,7 +56,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\dateChange.cs" />
     <Compile Include="Model\DBConnect.cs" />
+    <Compile Include="Model\enter.cs" />
     <Compile Include="Model\registration.cs" />
     <Compile Include="Model\SQLConnect.cs" />
     <Compile Include="sendMessToServ.cs" />

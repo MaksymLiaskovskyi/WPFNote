@@ -104,7 +104,20 @@
                         Grid.ColumnSpan="5"
                         Grid.RowSpan="3"
                         HorizontalAlignment="Right">
-                        <TextBlock VerticalAlignment="Center">
+
+                        <TextBlock
+                            x:Name="loginLabel"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Right"
+                            FontSize="16"
+                            Visibility="Hidden">
+                            null
+                        </TextBlock>
+                        
+                        <TextBlock 
+                            x:Name="signInBlock" 
+                            VerticalAlignment="Center" 
+                            Visibility="Visible">
                             <Hyperlink
                                 x:Name="enterAcc">
                                 Войти 
@@ -198,7 +211,105 @@
                     <TabItem 
                         x:Name="treckerTab" 
                         Visibility="Collapsed">
-                        
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition MinHeight="80px" Height="*" MaxHeight="150"/>
+                                <RowDefinition Height="5*"/>
+                            </Grid.RowDefinitions><!--2-->
+
+
+                            <Grid 
+                                Grid.Row="0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions><!--5-->
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition MinWidth="140"/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions><!--5-->
+
+                                <TextBlock 
+                                    Grid.RowSpan="5"
+                                    Grid.ColumnSpan="2"
+                                    FontSize="36"
+                                    VerticalAlignment="Center"
+                                    HorizontalAlignment="Right">
+                                    <Hyperlink
+                                        x:Name="prevMonthBtn"
+                                        Click="prevMonth">
+                                        ⮜ 
+                                    </Hyperlink>    
+                                </TextBlock>
+                                <TextBlock 
+                                    Grid.Column="2"
+                                    Grid.Row="0"
+                                    Grid.RowSpan="3"
+                                    FontSize="32"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Bottom">
+                                    <Hyperlink>
+                                        <Run 
+                                            x:Name="trackerMonth">
+                                            декабрь
+                                        </Run>
+                                    </Hyperlink>
+                                </TextBlock>
+                                <TextBlock 
+                                    Grid.Column="2"
+                                    Grid.Row="3"
+                                    Grid.RowSpan="2"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Top"
+                                    FontSize="22">
+                                    <Hyperlink>
+                                        <Run
+                                            x:Name="trackerYear">
+                                            2019
+                                        </Run>
+                                    </Hyperlink>
+                                </TextBlock>
+                                <TextBlock 
+                                    Grid.Column="3"
+                                    Grid.RowSpan="5"
+                                    Grid.ColumnSpan="2"
+                                    FontSize="36"
+                                    VerticalAlignment="Center"
+                                    HorizontalAlignment="Left">
+                                    <Hyperlink
+                                        x:Name="nextMonthBtn"
+                                        Click="nextMonth">
+                                            ⮞   
+                                    </Hyperlink>
+                                </TextBlock>
+                                
+                            </Grid>
+
+                            <ScrollViewer 
+                                Margin="20 20 0 0"
+                                VerticalAlignment="Top"
+                                Grid.Row="1" 
+                                VerticalScrollBarVisibility="Auto">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions><!--2-->
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition MinHeight="30"/>
+                                    </Grid.RowDefinitions><!-- задается програмно-->
+                                    
+                                    <TextBox Grid.Row="0"/>
+                                </Grid>
+                            </ScrollViewer>
+
+                        </Grid>
                     </TabItem>
                     
                     
@@ -286,6 +397,7 @@
                                 MinHeight="30px"
                                 MaxWidth="200px"
                                 Grid.ColumnSpan="6"
+                                Click="enterClick"
                                 >
                                 Войти
                             </Button>

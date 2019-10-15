@@ -7,5 +7,6 @@
 
     <Style TargetType="Hyperlink">
         <Setter Property="Foreground" Value="White"/>
+        <Setter Property="TextDecorations" Value="none"/>
     </Style>
 </ResourceDictionary>
