@@ -304,12 +304,13 @@
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="30"/>
                                     </Grid.RowDefinitions><!-- задается програмно-->
-                                    
+
                                     <TextBox Grid.Row="0"
                                              Grid.Column="0"
-                                             x:Name="traker0"
-                                             TextInput="traker_TextInput"
-                                             Style="{StaticResource subject}"/>
+                                             x:Name="tracker0"
+                                             Style="{StaticResource subject}" 
+                                             LostFocus="tracker0_LostFocus"
+                                             GotFocus="traker0_GotFocus"/>
                                 </Grid>
                             </ScrollViewer>
 

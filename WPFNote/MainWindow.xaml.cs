@@ -48,7 +48,7 @@ namespace WPFNote
             regAcc.Click += (s, a) => {
                 loginCheck = false;
                 passCheck = false;
-                contentTab.SelectedIndex = 5; 
+                contentTab.SelectedIndex = 5;
             };
             #endregion
 
@@ -107,8 +107,8 @@ namespace WPFNote
         {
             if (!loginCheck)
             {
-            ((TextBox)sender).Text = "";
-            ((TextBox)sender).Foreground = Brushes.Black;
+                ((TextBox)sender).Text = "";
+                ((TextBox)sender).Foreground = Brushes.Black;
             }
             loginCheck = true;
         }
@@ -116,15 +116,15 @@ namespace WPFNote
         {
             if (!passCheck)
             {
-            ((TextBox)sender).Text = "";
-            ((TextBox)sender).Foreground = Brushes.Black;
+                ((TextBox)sender).Text = "";
+                ((TextBox)sender).Foreground = Brushes.Black;
             }
             passCheck = true;
         }
 
         private void passTextBox_LostFocus(object sender, RoutedEventArgs e)
         {
-            if(((TextBox)sender).Text == "" || ((TextBox)sender).Text == null)
+            if (((TextBox)sender).Text == "" || ((TextBox)sender).Text == null)
             {
                 ((TextBox)sender).Text = "Пароль";
                 ((TextBox)sender).Foreground = Brushes.Gray;
@@ -165,9 +165,9 @@ namespace WPFNote
             {
                 MessageBox.Show("Введите логин или пароль");
             }
-            else 
+            else
             {
-                if (enter.enterPerson(enterLoginTextBox.Text, enterPassTextBox.Text)){
+                if (enter.enterPerson(enterLoginTextBox.Text, enterPassTextBox.Text)) {
                     entering(enterLoginTextBox.Text);
                 }
                 else
@@ -201,13 +201,34 @@ namespace WPFNote
         }
 
         int countRows = 1;
-        private void traker_TextInput(object sender, TextCompositionEventArgs e)
+
+        private void tracker0_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (((TextBox)sender).Text == "" || ((TextBox)sender).Text == null)
+            {
+                MessageBox.Show(((RowDefinition)((TextBox)sender).Parent).ToString());
+               /*UnregisterName(((TextBox)sender).Name);
+                trackerGrid.Children.Remove(((TextBox)sender));*/
+            }
+        }
+
+        private void traker0_GotFocus(object sender, RoutedEventArgs e)
         {
             var row = new RowDefinition();
             row.Height = new GridLength(30, GridUnitType.Pixel);
+          /*  row.Name = "trackerRow" + countRows;
+            RegisterName(row.Name, row);*/
             trackerGrid.RowDefinitions.Add(row);
             var tb = new TextBox();
-            trackerGrid.Children.Add(tb);/*
+            tb.Name = "tracker" + countRows;
+            RegisterName(tb.Name, tb);
+            trackerGrid.Children.Add(tb);
+            Grid.SetRow(tb, countRows);
+            Grid.SetColumn(tb, 0);
+            countRows++;
+
+
+            /*
             var style = (Style)Resources["subject"];
             foreach(var textBox in trackerGrid.Children.OfType<TextBox>())
             {
@@ -215,5 +236,6 @@ namespace WPFNote
             }*/
 
         }
+
     }
 }
