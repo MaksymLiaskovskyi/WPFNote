@@ -192,11 +192,28 @@ namespace WPFNote
             trackerMonth.Text = currDate.ToString("MMMM");
             trackerYear.Text = currDate.ToString("yyyy");
         }
+
         private void prevMonth(object sender, RoutedEventArgs e)
         {
             currDate = dateChange.monthChange(false);
             trackerMonth.Text = currDate.ToString("MMMM");
             trackerYear.Text = currDate.ToString("yyyy");
+        }
+
+        int countRows = 1;
+        private void traker_TextInput(object sender, TextCompositionEventArgs e)
+        {
+            var row = new RowDefinition();
+            row.Height = new GridLength(30, GridUnitType.Pixel);
+            trackerGrid.RowDefinitions.Add(row);
+            var tb = new TextBox();
+            trackerGrid.Children.Add(tb);/*
+            var style = (Style)Resources["subject"];
+            foreach(var textBox in trackerGrid.Children.OfType<TextBox>())
+            {
+                textBox.Style = style;
+            }*/
+
         }
     }
 }

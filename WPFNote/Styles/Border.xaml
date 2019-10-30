@@ -2,12 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:WPFNote.Styles">
 
-
-
     <Style TargetType="Border" x:Key="menu">
         <Setter Property="Background" Value="#7255A3"/>
     </Style>
-
-
-
 </ResourceDictionary>

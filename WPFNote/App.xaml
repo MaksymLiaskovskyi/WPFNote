@@ -12,6 +12,7 @@
                 <ResourceDictionary Source="Styles/TabItems.xaml"/>
                 <ResourceDictionary Source="Styles/Label.xaml"/>
                 <ResourceDictionary Source="Styles/textBox.xaml"/>
+                <ResourceDictionary Source="Styles/colors.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
